@@ -3,34 +3,33 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
-import { OwnerCreateComponent } from './owner/owner-create/owner-create.component';
-import { OwnerDeleteComponent } from './owner/owner-delete/owner-delete.component';
-import { OwnerDetailsComponent } from './owner/owner-details/owner-details.component';
-import { OwnerListComponent } from './owner/owner-list/owner-list.component';
-import { OwnerUpdateComponent } from './owner/owner-update/owner-update.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { OwnerAccountsComponent } from './owner/owner-details/owner-accounts/owner-accounts.component';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { NotFoundComponent } from './error-pages/not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
+import { OwnerModule } from './owner/owner.module';
+import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MenuComponent,
-    OwnerCreateComponent,
-    OwnerDeleteComponent,
-    OwnerDetailsComponent,
-    OwnerListComponent,
-    OwnerUpdateComponent,
-    OwnerAccountsComponent
+    NotFoundComponent,
+    InternalServerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    CollapseModule.forRoot(),
+    OwnerModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

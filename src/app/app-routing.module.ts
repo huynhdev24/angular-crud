@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'owner', loadChildren: () => import('./owner/owner.module').then(m => m.OwnerModule) },
   { path: '404', component: NotFoundComponent }, 
   { path: '500', component: InternalServerComponent }, 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
