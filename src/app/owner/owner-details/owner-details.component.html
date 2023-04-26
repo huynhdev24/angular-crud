@@ -15,7 +15,7 @@
             {{owner?.dateOfBirth | date: 'dd/MM/yyyy'}}
         </div>
     </div>
-    <div class="row" *ngIf='owner?.accounts.length <= 2; else advancedUser'>
+    <div class="row" *ngIf='owner?.account.length <= 2; else advancedUser'>
         <div class="col-md-3">
             <strong>Type of user:</strong>
         </div>
@@ -35,4 +35,4 @@
     </ng-template>
 </div>
 
-<app-owner-accounts [accounts]="owner?.accounts" (onAccountClick)="printToConsole($event)"></app-owner-accounts>
+<app-owner-accounts [accounts]="owner?.account" (onAccountClick)="printToConsole($event)"></app-owner-accounts>
